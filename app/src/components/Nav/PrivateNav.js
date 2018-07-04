@@ -1,25 +1,11 @@
-import React from "react"
+import React, { Component } from "react"
+import { connect } from "react-redux"
 import { NavLink } from "react-router-dom"
 
-export default function Nav() {
-    return (
-        <nav className='nav'>
-            <ul className="brand">
-                <li className="brand-logo">
-                    Would You Rather
-                </li>
-            </ul>
+class PrivateNav extends Component {
+    render() {
+        return (
             <ul className="menu">
-                <li>
-                    <NavLink to='/login' exact activeClassName='active'>
-                        Login
-                    </NavLink>
-                </li>
-                <li>
-                    <NavLink to='/signup' exact activeClassName='active'>
-                        Signup
-                    </NavLink>
-                </li>
                 <li>
                     <NavLink to='/' activeClassName='active'>
                         Dashboard
@@ -39,6 +25,8 @@ export default function Nav() {
                     Welcome Vinay
                 </li>
             </ul>
-        </nav>
-    )
-} 
+        )
+    }
+}
+
+export default connect()(PrivateNav)
