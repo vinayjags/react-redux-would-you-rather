@@ -1,5 +1,44 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  background-color: #ecf0f1;
+}
+
+.nav{
+  border-bottom: 1px solid #bdc3c7;
+  background-color: white;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav ul.brand{
+  padding: 10px;
+  margin: 0px;
+  list-style-type: none;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+}
+
+.nav ul.menu{
+  padding: 10px;
+  margin: 0px;
+  list-style-type: none;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-end;
+}
+
+.nav ul.menu li a{
+  color: #7f8c8d;
+  text-decoration: none;
+  margin: 0px 10px 0px 0px;
+}
+
+.brand-logo{
+  align-self: flex-start;
 }
