@@ -1,5 +1,6 @@
 import React, { Component } from "react"
 import { connect } from "react-redux"
+import { withRouter } from "react-router-dom"
 import PrivateNav from "./PrivateNav"
 import PublicNav from "./PublicNav"
 
@@ -8,7 +9,7 @@ class Nav extends Component {
         const { isLoggedIn } = this.props
 
         return (
-            <nav className='nav' >
+            <div className='nav' >
                 <ul className="brand">
                     <li className="brand-logo">
                         Would You Rather
@@ -16,7 +17,7 @@ class Nav extends Component {
                 </ul>
                 {isLoggedIn === true && (<PrivateNav />)}
                 {isLoggedIn === false && (<PublicNav />)}
-            </nav>
+            </div>
         )
     }
 }
@@ -27,5 +28,5 @@ function mapStateToPros({ authedUser }) {
     }
 }
 
-export default connect(mapStateToPros)(Nav)
+export default withRouter(connect(mapStateToPros)(Nav))
 

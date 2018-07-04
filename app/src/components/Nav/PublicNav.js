@@ -1,18 +1,18 @@
 import React, { Component } from "react"
 import { connect } from "react-redux"
-import { NavLink } from "react-router-dom"
+import { NavLink, withRouter } from "react-router-dom"
 
 class PublicNav extends Component {
     render() {
         return (
             <ul className="menu">
                 <li>
-                    <NavLink to='/login' exact activeClassName='active'>
+                    <NavLink className="link" exact to='/login' activeClassName='active'>
                         Login
                     </NavLink>
                 </li>
                 <li>
-                    <NavLink to='/signup' exact activeClassName='active'>
+                    <NavLink className="link" exact to='/signup' activeClassName='active'>
                         Signup
                     </NavLink>
                 </li>
@@ -21,4 +21,4 @@ class PublicNav extends Component {
     }
 }
 
-export default connect()(PublicNav)
+export default withRouter(connect()(PublicNav))

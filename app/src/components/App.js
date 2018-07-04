@@ -15,10 +15,13 @@ class App extends Component {
 
     componentDidUpdate() {
         const { dispatch, isLoggedIn } = this.props
-        console.log("app update")
         if (isLoggedIn === true) {
             dispatch(handleInitialData())
         }
+    }
+
+    shouldComponentUpdate() {
+        console.log("updating app")
     }
 
     render() {
@@ -26,9 +29,11 @@ class App extends Component {
             <Router>
                 <Fragment>
                     <LoadingBar />
-                    <Nav />
-                    <PrivateRoute isLoggedIn={this.props.isLoggedIn} />
-                    <PublicRoute isLoggedIn={this.props.isLoggedIn} />
+                    <div className="container">
+                        <Nav />
+                        <PrivateRoute isLoggedIn={this.props.isLoggedIn} />
+                        <PublicRoute isLoggedIn={this.props.isLoggedIn} />
+                    </div>
                 </Fragment>
             </Router>
         );
