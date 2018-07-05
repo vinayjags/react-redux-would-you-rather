@@ -1,6 +1,7 @@
 import {
     _getQuestions,
     _getUsers,
+    _checkUserName
 } from './_DATA.js'
 
 export function getInitialData() {
@@ -11,4 +12,24 @@ export function getInitialData() {
         questions,
         users,
     }))
+}
+
+export function checkUserName(username) {
+    return new Promise((res, rej) => {
+        const userRec = _checkUserName(username)
+        res(userRec)
+    })
+}
+
+export function formatQuestionForView(question, authedUser, users) {
+
+    const hasAnsweredOptionOne = question.optionOne.votes.indexOf(authedUser) !== -1
+    const hasAnsweredOptionTwo = question.optionTwo.votes.indexOf(authedUser) !== -1
+
+    return {
+        ...question,
+        author: users[question.author],
+        hasUserAnswered: hasAnsweredOptionOne || hasAnsweredOptionTwo,
+        userAnswered: hasAnsweredOptionOne === true ? 1 : (hasAnsweredOptionTwo === true ? 1 : 0)
+    }
 }

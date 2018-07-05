@@ -12,7 +12,7 @@ class Nav extends Component {
             <div className='nav' >
                 <ul className="brand">
                     <li className="brand-logo">
-                        Would You Rather
+                        <i className="fas fa-american-sign-language-interpreting fa-lg icon"></i>&nbsp;Would You Rather
                     </li>
                 </ul>
                 {isLoggedIn === true && (<PrivateNav />)}

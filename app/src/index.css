@@ -31,6 +31,7 @@ body {
   margin-bottom: 10px;
   display: flex;
   justify-content: space-between;
+  min-height: 37px;
 }
 
 .nav ul.brand{
@@ -83,11 +84,85 @@ body {
   width: 300px;
   border: 1px solid #bdc3c7;
   border-radius: 5px;
-  text-align: center;
   background-color: white;
-  padding: 10px;
+  padding: 10px 10px 15px 10px;
 }
 
 .box-center{
   text-align: center;
+}
+
+.form-group{
+  padding: 0px 10px;
+  margin-bottom: 15px;
+}
+
+.form-group .form-row label{
+  color: #868282;
+}
+
+.form-group .form-row .form-element{
+  width: 100%;
+  margin-top: 5px;
+  padding: 10px 0px 10px 5px;
+  border-radius: 5px;
+  border: 1px solid #868282;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  box-sizing: border-box;
+  outline: none;
+}
+
+.error{
+  color: #e74c3c;
+  margin: 5px 0px;
+}
+
+.btn{
+  background-color: #2ecc71;
+  padding: 10px;
+  width: 100px;
+  color: white;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  border: 1px solid #16a085;
+  outline: none;
+  cursor: pointer;
+}
+
+.btn[disabled]{
+  background-color: #bdc3c7;
+  color: #7f8c8d;
+  border: 1px solid #7f8c8d;
+  cursor: default;
+}
+
+.switch-box{
+  display: flex;
+  width: 300px;
+  margin: 0px auto;
+  background-color: white;
+}
+
+.switch-box .tab{
+  background-color: white;
+  background-color: white;
+  padding: 10px;
+  flex: 1;
+  text-align: center;
+  cursor: pointer;
+}
+
+.switch-box .tab.active{
+  background-color: #f39c12;
+  color: white;
+}
+
+.question-list{
+  min-width: 310px;
+  max-width: 500px;
+  width: 100%;
+  margin: 20px auto;
+
 }
