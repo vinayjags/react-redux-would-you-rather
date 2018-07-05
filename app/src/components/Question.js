@@ -9,8 +9,27 @@ class Question extends Component {
 
         return (
             <div className="question-box">
-                <h2>Would you rather</h2>
-                <div>{question.optionOne.text}</div>
+                <div className="question-by">
+                    <img alt={question.author.id} src={`/images/avatars/${question.author.avatarURL}`} className="avatar small" />
+                    {question.author.name} ask:
+                </div>
+                <div className="question-details">
+                    <div className="question-user-avatar">
+                        <img alt={question.author.id} src={`/images/avatars/${question.author.avatarURL}`} className="avatar" />
+                    </div>
+                    <div className="question-text">
+                        <div style={{ marginBottom: '28px' }}>
+                            <div className="title">Would you rather</div>
+                            <div style={{ marginBottom: '10px' }}>...{question.optionOne.text}...</div>
+                        </div>
+                        <button
+                            style={{ width: '100%', marginBottom: 0 }}
+                            className='btn'
+                            type='button'>
+                            View Poll
+                        </button>
+                    </div>
+                </div>
             </div>
         )
     }

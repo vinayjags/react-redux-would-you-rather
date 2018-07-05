@@ -32,8 +32,9 @@ class PrivateNav extends Component {
                         Leaderboard
                     </NavLink>
                 </li>
-                <li style={{ marginRight: '10px' }}>
-                    Welcome {name}
+                <li className="user-hdr">
+                    <img alt={name} src={`/images/avatars/${avatarURL}`} className="avatar small" />
+                    Hello, {name}
                 </li>
                 <li onClick={() => this.handleLogout()} style={{ cursor: "pointer", color: "#c0392b" }}>
                     <i className="fas fa-sign-out-alt"></i>

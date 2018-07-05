@@ -28,8 +28,8 @@ class Dashboard extends Component {
         return (
             <div className="">
                 <div className="switch-box">
-                    <div className={activeTab === UNANSWERED_TAB ? "tab active" : "tab"} onClick={() => this.hadleSwitch(UNANSWERED_TAB)}>Unanswered Poll</div>
-                    <div className={activeTab === ANSWERED_TAB ? "tab active" : "tab"} onClick={() => this.hadleSwitch(ANSWERED_TAB)}>Answered Poll</div>
+                    <div style={{ borderRight: '0px' }} className={activeTab === UNANSWERED_TAB ? "tab active" : "tab"} onClick={() => this.hadleSwitch(UNANSWERED_TAB)}>Unanswered Poll</div>
+                    <div style={{ borderLeft: '0px' }} className={activeTab === ANSWERED_TAB ? "tab active" : "tab"} onClick={() => this.hadleSwitch(ANSWERED_TAB)}>Answered Poll</div>
                 </div>
                 {activeTab === UNANSWERED_TAB && (
                     <ul className="question-list">
@@ -60,12 +60,16 @@ class Dashboard extends Component {
 
 function mapStateToProps({ questions, authedUser, users }) {
 
-    const answeredQuestionIds = authedUser === null ? [] : Object.keys(users[authedUser].answers)
+    const answeredQuestionIds = authedUser === null ? [] : Object.keys(users[authedUser].answers).sort((a, b) => {
+        return questions[b].timestamp - questions[a].timestamp;
+    })
 
     return {
         answeredQuestionIds: answeredQuestionIds,
         unAnsweredQuestoinIds: Object.keys(questions).filter(question => {
             return answeredQuestionIds.indexOf(question) === -1
+        }).sort((a, b) => {
+            return questions[b].timestamp - questions[a].timestamp;
         })
     }
 }
