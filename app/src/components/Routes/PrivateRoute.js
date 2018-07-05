@@ -14,7 +14,8 @@ class PrivateRoute extends Component {
         }
 
         if (isLoggedIn === false) {
-            return <Redirect to="/login" />
+            const redirectTo = path.pathname === "/" ? "" : `?redirectTo=${path.pathname}`
+            return <Redirect to={`/login${redirectTo}`} />
         }
 
         return (

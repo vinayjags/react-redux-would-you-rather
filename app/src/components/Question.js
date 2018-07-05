@@ -1,8 +1,16 @@
 import React, { Component } from "react"
 import { connect } from "react-redux"
 import { formatQuestionForView } from "../utils/api"
+import { withRouter } from "react-router-dom"
 
 class Question extends Component {
+
+    handlePollPage(e) {
+        const { question } = this.props
+        e.preventDefault()
+        this.props.history.push(`question/${question.id}`)
+    }
+
     render() {
 
         const { question } = this.props
@@ -25,7 +33,8 @@ class Question extends Component {
                         <button
                             style={{ width: '100%', marginBottom: 0 }}
                             className='btn'
-                            type='button'>
+                            type='button'
+                            onClick={(e) => this.handlePollPage(e)}>
                             View Poll
                         </button>
                     </div>
@@ -41,4 +50,4 @@ function mapStateToProps({ questions, users, authedUser }, { id }) {
     }
 }
 
-export default connect(mapStateToProps)(Question)
+export default withRouter(connect(mapStateToProps)(Question))

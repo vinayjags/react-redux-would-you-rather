@@ -5,7 +5,6 @@ import { NavLink } from "react-router-dom"
 import { handleInitialData } from "../actions/shared"
 
 class Login extends Component {
-
     constructor() {
         super();
         this.state = {
