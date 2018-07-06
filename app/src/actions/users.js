@@ -23,10 +23,10 @@ export function handleAddUser(user) {
     return (dispatch) => {
         dispatch(showLoading())
         return addNewUser(user)
-            .then(user => {
-                dispatch(addUser(user))
+            .then(userRec => {
+                dispatch(addUser(userRec))
                 dispatch(hideLoading())
-                return user
+                return userRec
             })
     }
 }

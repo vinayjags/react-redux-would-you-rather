@@ -121,6 +121,7 @@ function generateUID() {
 
 export function _checkUserName(username) {
     return new Promise((res, rej) => {
+        console.log(users)
         const isUserValid = users.hasOwnProperty(username)
         if (isUserValid === true) {
             setTimeout(() => res(users[username]), 1000)
@@ -174,9 +175,8 @@ export function _saveUser(user) {
         setTimeout(() => {
             users = {
                 ...users,
-                [user.id]: user
+                [formattedUser.id]: formattedUser
             }
-
             res(formattedUser)
         })
     }, 1000)
