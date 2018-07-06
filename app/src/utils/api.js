@@ -1,7 +1,8 @@
 import {
     _getQuestions,
     _getUsers,
-    _checkUserName
+    _checkUserName,
+    _saveUser
 } from './_DATA.js'
 
 export function getInitialData() {
@@ -17,6 +18,13 @@ export function getInitialData() {
 export function checkUserName(username) {
     return new Promise((res, rej) => {
         const userRec = _checkUserName(username)
+        res(userRec)
+    })
+}
+
+export function addNewUser(user) {
+    return new Promise((res, rej) => {
+        const userRec = _saveUser(user)
         res(userRec)
     })
 }

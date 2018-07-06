@@ -1,5 +1,8 @@
 import React, { Component } from "react"
 import { NavLink } from "react-router-dom"
+import { checkLogin, handleAddUser } from "../actions/users"
+import { connect } from "react-redux"
+import { setLoggedInUser } from "../actions/shared"
 
 class SignUp extends Component {
     constructor() {
@@ -9,11 +12,16 @@ class SignUp extends Component {
             error: "",
             firstName: "",
             lastName: "",
-            images: [
-                "one",
-                "two"
-            ]
+            avatarUrl: "one.png"
         }
+        this.images = [
+            "one.png",
+            "two.png",
+            "three.png",
+            "four.png",
+            "five.png",
+            "six.png"
+        ]
     }
 
     handleChange(e) {
@@ -43,12 +51,45 @@ class SignUp extends Component {
         })
     }
 
-    hanldeSubmit(e) {
+    handleAvatarChange(image) {
+        this.setState(currentState => {
+            return {
+                avatarUrl: image
 
+            }
+        })
+    }
+
+    hanldeSubmit(e) {
+        e.preventDefault()
+        const { dispatch } = this.props
+        const { username, firstName, lastName, avatarUrl } = this.state
+
+        const userPromise = dispatch(checkLogin(username))
+        userPromise.then(user => {
+            if (user !== null) {
+                this.setState(currentState => {
+                    return {
+                        error: "Username already in use."
+                    }
+                })
+            } else {
+                const addUserPromise = dispatch(handleAddUser({
+                    username,
+                    firstName,
+                    lastName,
+                    avatarUrl
+                }))
+
+                addUserPromise.then(user => {
+                    dispatch(setLoggedInUser(user.id))
+                })
+            }
+        })
     }
 
     render() {
-        const { username, error, firstName, lastName } = this.state
+        const { username, error, firstName, lastName, avatarUrl } = this.state
         return (
             <div className="main-container">
                 <form onSubmit={(e) => this.hanldeSubmit(e)} >
@@ -68,7 +109,18 @@ class SignUp extends Component {
                             <div className="form-row">
                                 <input type="text" value={username} onChange={(e) => this.handleChange(e)} className="form-element" placeholder="Username" />
                             </div>
-                            <div className="form-row">
+                            <div className="form-row" id="avatar-ul-container">
+                                <label>Avatar</label>
+                                <ul className="avatar-list">
+                                    {this.images.map(image => (
+                                        <li key={image} onClick={() => this.handleAvatarChange(image)}>
+                                            <div className={avatarUrl === image ? "checked active" : "checked"}>
+                                                <i className="fas fa-check"></i>
+                                            </div>
+                                            <img alt={image} src={`/images/avatars/${image}`} className="avatar" />
+                                        </li>
+                                    ))}
+                                </ul>
                             </div>
                         </div>
                         <div className="box-center">
@@ -92,4 +144,4 @@ class SignUp extends Component {
     }
 }
 
-export default SignUp
+export default connect()(SignUp)

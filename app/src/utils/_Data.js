@@ -142,6 +142,16 @@ export function _getQuestions() {
     })
 }
 
+function formatUser({ username, firstName, lastName, avatarUrl }) {
+    return {
+        id: username,
+        name: `${firstName} ${lastName}`,
+        avatarURL: avatarUrl,
+        answers: {},
+        questions: []
+    }
+}
+
 function formatQuestion({ optionOneText, optionTwoText, author }) {
     return {
         id: generateUID(),
@@ -156,6 +166,20 @@ function formatQuestion({ optionOneText, optionTwoText, author }) {
             text: optionTwoText,
         }
     }
+}
+
+export function _saveUser(user) {
+    return new Promise((res, rej) => {
+        const formattedUser = formatUser(user)
+        setTimeout(() => {
+            users = {
+                ...users,
+                [user.id]: user
+            }
+
+            res(formattedUser)
+        })
+    }, 1000)
 }
 
 export function _saveQuestion(question) {

@@ -231,3 +231,44 @@ body {
   margin-bottom: 10px;
   font-size: 16px;
 }
+
+#avatar-ul-container{
+  margin-top: 10px;
+}
+
+.avatar-list{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  list-style-type: none;
+  padding: 0px;
+  margin: 0px
+}
+
+.avatar-list li{
+  cursor: pointer;
+  margin: 5px;
+  position: relative;
+}
+
+.avatar-list li img{
+  width:50px;
+  height: 50px;
+}
+
+.checked{
+  position: absolute;
+    top: 0px;
+    right: 7px;
+    border-radius: 50%;
+    color: green;
+    background-color: white;
+    border: 1px solid;
+    padding: 1px;
+    font-size: 10px;
+    display: none;
+}
+
+.checked.active{
+  display: block;
+}
