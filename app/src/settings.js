@@ -1,4 +1,4 @@
 export const publicUrls = [
-    "/login",
-    "/signup"
+  '/login',
+  '/signup'
 ]
