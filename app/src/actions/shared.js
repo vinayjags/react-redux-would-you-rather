@@ -1,6 +1,6 @@
-import { getInitialData, addQuestion } from '../utils/api'
-import { receiveUsers, addQuestionToUser } from '../actions/users'
-import { receiveQuestions, addQuestion as addQuestionAction } from '../actions/questions'
+import { getInitialData, addQuestion, saveQuestionAnswer } from '../utils/api'
+import { receiveUsers, addQuestionToUser, addQuestionAnswerToUser } from '../actions/users'
+import { receiveQuestions, addQuestion as addQuestionAction, addQuestionAnswer } from '../actions/questions'
 import { setAuthUser } from '../actions/authUser'
 import { showLoading, hideLoading } from 'react-redux-loading'
 
@@ -42,6 +42,18 @@ export function handleAddQuestion (question) {
       .then(questionRec => {
         dispatch(addQuestionAction(questionRec))
         dispatch(addQuestionToUser(questionRec))
+        dispatch(hideLoading())
+      })
+  }
+}
+
+export function handleAddQuestionAnswer (info) {
+  return (dispatch) => {
+    dispatch(showLoading())
+    return saveQuestionAnswer(info)
+      .then(() => {
+        dispatch(addQuestionAnswer(info))
+        dispatch(addQuestionAnswerToUser(info))
         dispatch(hideLoading())
       })
   }

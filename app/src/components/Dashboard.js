@@ -32,28 +32,38 @@ class Dashboard extends Component {
           <div style={{ borderLeft: '0px' }} className={activeTab === ANSWERED_TAB ? 'tab active' : 'tab'} onClick={() => this.hadleSwitch(ANSWERED_TAB)}>Answered Poll</div>
         </div>
         {activeTab === UNANSWERED_TAB && (
-          <ul className="question-list">
-            {unAnsweredQuestoinIds.map(question =>
-              (
-                <li key={question}>
-                  <Poll id={question} />
-                </li>
-              )
-            )}
-          </ul>
-        )}
-        {activeTab === ANSWERED_TAB && (
-          <ul className="question-list">
-            {answeredQuestionIds.map(question =>
-              (
-                <li key={question}>
-                  <Poll id={question} />
-                </li>
-              )
-            )}
-          </ul>
-        )}
-      </div>
+          <div>
+            {unAnsweredQuestoinIds.length === 0 && (<h4 style={{ textAlign: 'center' }}>No Un-Answered Polls found</h4>)}
+            {unAnsweredQuestoinIds.length > 0 && (< ul className="question-list">
+              {unAnsweredQuestoinIds.map(question =>
+                (
+                  <li key={question}>
+                    <Poll id={question} />
+                  </li>
+                )
+
+              )}
+            </ul>)}
+          </div>
+        )
+        }
+        {
+          activeTab === ANSWERED_TAB && (
+            <div>
+              {answeredQuestionIds.length === 0 && (<h4 style={{ textAlign: 'center' }}>No Answered Polls found</h4>)}
+              {answeredQuestionIds.length > 0 && (<ul className="question-list">
+                {answeredQuestionIds.map(question =>
+                  (
+                    <li key={question}>
+                      <Poll id={question} />
+                    </li>
+                  )
+                )}
+              </ul>)}
+            </div>
+          )
+        }
+      </div >
     )
   }
 }

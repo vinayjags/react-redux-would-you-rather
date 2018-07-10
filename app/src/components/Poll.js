@@ -7,7 +7,7 @@ class Poll extends Component {
   handlePollPage (e) {
     const { question } = this.props
     e.preventDefault()
-    this.props.history.push(`question/${question.id}`)
+    this.props.history.push(`questions/${question.id}`)
   }
 
   render () {

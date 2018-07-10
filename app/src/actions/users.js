@@ -1,10 +1,10 @@
-import { checkUserName } from '../utils/api'
+import { checkUserName, addNewUser } from '../utils/api'
 import { showLoading, hideLoading } from 'react-redux-loading'
-import { addNewUser } from '../utils/api'
 
 export const RECEIVE_USERS = 'RECEIVE_USERS'
 export const ADD_USER = 'ADD_USER'
 export const ADD_QUESTION_TO_USER = 'ADD_QUESTION_TO_USER'
+export const SAVE_QUESTION_ANSWER = 'SAVE_QUESTION_ANSWER'
 
 function addUser (user) {
   return {
@@ -24,6 +24,13 @@ export function addQuestionToUser (question) {
   return {
     type: ADD_QUESTION_TO_USER,
     question
+  }
+}
+
+export function addQuestionAnswerToUser (info) {
+  return {
+    type: SAVE_QUESTION_ANSWER,
+    info
   }
 }
 

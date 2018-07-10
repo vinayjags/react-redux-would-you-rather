@@ -3,7 +3,8 @@ import {
   _getUsers,
   _checkUserName,
   _saveUser,
-  _saveQuestion
+  _saveQuestion,
+  _saveQuestionAnswer
 } from './_DATA.js'
 
 export function getInitialData () {
@@ -34,6 +35,13 @@ export function addQuestion (question) {
   return new Promise((resolve, reject) => {
     const questionRec = _saveQuestion(question)
     resolve(questionRec)
+  })
+}
+
+export function saveQuestionAnswer (info) {
+  return new Promise((resolve, reject) => {
+    _saveQuestionAnswer(info)
+    resolve()
   })
 }
 
