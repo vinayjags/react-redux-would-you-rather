@@ -7,7 +7,7 @@ import { handleInitialData } from '../actions/shared'
 class Login extends Component {
   constructor () {
     super()
-        this.state = {
+    this.state = {
       username: '',
       error: ''
     }
@@ -70,9 +70,9 @@ class Login extends Component {
                 <i className="fas fa-sign-in-alt"></i>&nbsp;Login
               </button>
               <div>
-                                Don't have a account?&nbsp;
+                Don't have a account?&nbsp;
                 <NavLink to='/signup'>
-                                    Signup Now
+                  Signup Now
                 </NavLink>
               </div>
             </div>

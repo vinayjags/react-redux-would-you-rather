@@ -17,22 +17,22 @@ class PrivateNav extends Component {
       <ul className="menu">
         <li>
           <NavLink className="link" exact to='/' activeClassName='active'>
-                        Dashboard
+            Dashboard
           </NavLink>
         </li>
         <li>
           <NavLink className="link" exact to='/add' activeClassName='active'>
-                        New Poll
+            New Poll
           </NavLink>
         </li>
         <li>
           <NavLink className="link" exact to='/leaderboard' activeClassName='active'>
-                        Leaderboard
+            Leaderboard
           </NavLink>
         </li>
         <li className="user-hdr">
           <img alt={name} src={`/images/avatars/${avatarURL}`} className="avatar small" />
-                    Hello, {name}
+          Hello, {name}
         </li>
         <li onClick={() => this.handleLogout()} style={{ cursor: 'pointer', color: '#c0392b' }}>
           <i className="fas fa-sign-out-alt"></i>

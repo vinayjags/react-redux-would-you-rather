@@ -19,7 +19,7 @@ const LearderBoard = ({ leaderBoard }) => {
 function mapStateToProps ({ users }) {
   const leaderBoard = users.length === 0 ? [] : Object.keys(users).sort((a, b) => {
     return (Object.keys(users[b].answers).length + users[b].questions.length) -
-            (Object.keys(users[a].answers).length + users[a].questions.length)
+      (Object.keys(users[a].answers).length + users[a].questions.length)
   }).map((Id, index) => {
     return {
       ...users[Id],

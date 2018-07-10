@@ -26,7 +26,7 @@ class App extends Component {
         </Fragment>
       </Router>
     )
-    }
+  }
 }
 
 function mapStateToProps ({ authedUser }) {

@@ -7,7 +7,7 @@ import { setLoggedInUser } from '../actions/shared'
 class SignUp extends Component {
   constructor () {
     super()
-        this.state = {
+    this.state = {
       username: '',
       error: '',
       firstName: '',
@@ -131,9 +131,9 @@ class SignUp extends Component {
                 <i className="fas fa-sign-in-alt"></i>&nbsp;Sign Up
               </button>
               <div>
-                                Already have an account&nbsp;
+                Already have an account&nbsp;
                 <NavLink to='/login'>
-                                    Login here
+                  Login here
                 </NavLink>
               </div>
             </div>

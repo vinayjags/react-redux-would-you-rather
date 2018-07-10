@@ -8,12 +8,12 @@ class PublicNav extends Component {
       <ul className="menu">
         <li>
           <NavLink className="link" exact to='/login' activeClassName='active'>
-                        Login
+            Login
           </NavLink>
         </li>
         <li>
           <NavLink className="link" exact to='/signup' activeClassName='active'>
-                        Signup
+            Signup
           </NavLink>
         </li>
       </ul>

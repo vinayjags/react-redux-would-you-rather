@@ -51,7 +51,7 @@ class NewPoll extends Component {
             <div className="form-group">
               <div className="error">{error}</div>
               <div className="form-row">
-                                Compelete the question:
+                Compelete the question:
                 <h4>Would you rather...</h4>
               </div>
               <div className="form-row">
@@ -70,7 +70,7 @@ class NewPoll extends Component {
                 className='btn'
                 type='submit'
                 disabled={optionTwo === '' || optionTwo === ''}>
-                                Create Poll
+                Create Poll
               </button>
             </div>
           </div >

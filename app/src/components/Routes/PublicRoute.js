@@ -19,7 +19,7 @@ class PublicRoute extends Component {
     let { redirectTo } = queryParams
 
     if (typeof redirectTo === 'undefined' ||
-            redirectTo === null) {
+      redirectTo === null) {
       redirectTo = '/'
     }
 
