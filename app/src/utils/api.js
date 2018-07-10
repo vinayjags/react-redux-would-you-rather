@@ -53,6 +53,6 @@ export function formatQuestionForView (question, authedUser, users) {
     ...question,
     author: users[question.author],
     hasUserAnswered: hasAnsweredOptionOne || hasAnsweredOptionTwo,
-    userAnswered: hasAnsweredOptionOne === true ? 1 : (hasAnsweredOptionTwo === true ? 1 : 0)
+    userAnswered: hasAnsweredOptionOne === true ? 1 : (hasAnsweredOptionTwo === true ? 2 : 0)
   }
 }

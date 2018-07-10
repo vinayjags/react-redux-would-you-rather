@@ -13,6 +13,7 @@ export default function users (state = [], action) {
         [action.question.id]: action.question
       }
     case SAVE_QUESTION_ANSWER:
+      console.log(state[action.info.qid][action.info.answer])
       return {
         ...state,
         [action.info.qid]: {

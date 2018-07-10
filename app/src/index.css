@@ -40,7 +40,6 @@ body {
   list-style-type: none;
   display: flex;
   flex-flow: row nowrap;
-  justify-content: flex-start;
 }
 
 .nav ul.menu{
@@ -60,10 +59,6 @@ body {
 
 .link.active{
   font-weight: bold;
-}
-
-.brand-logo{
-  align-self: flex-start;
 }
 
 .container{
@@ -167,6 +162,7 @@ body {
   width: 100%;
   margin: 20px auto;
   list-style-type: none;
+  padding: 0px;
 }
 
 .question-list li, .leadboard-list li{
@@ -349,11 +345,13 @@ body {
   border-radius: 5px;
   background-color: #74b9ff;
   margin-bottom: 10px;
+  position: relative;
 }
 
 .optionText{
   color: #0984e3;
   font-weight: bold;
+  width: 90%;
 }
 
 .percentageVotes{
@@ -377,4 +375,44 @@ body {
 .votes{
   text-align: center;
   font-weight: bold;
+}
+
+.your-answer{
+  position: absolute;
+  right: -7px;
+  top: -24px;
+  background-color: #fdcb6e;
+  padding: 9px;
+  color: white;
+  font-weight: bold;
+  width: 25px;
+  text-align: center;
+  border-radius: 50%;
+  font-size: 12px;
+  height: 25px;
+  display: none;
+}
+
+.optionResult.active .your-answer{
+  display: block;
+}
+
+@media screen and (max-width: 767px){
+  .nav{
+    flex-flow: column;
+    padding-bottom: 20px;
+  }
+
+  .brand-logo{
+    width: 100%;
+    text-align: center;
+  }
+  
+  .nav ul.menu{
+    justify-content: center;
+  }
+
+  .user-hdr{
+    margin-top: 8px;
+  }
 }

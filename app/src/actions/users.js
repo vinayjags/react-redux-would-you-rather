@@ -4,7 +4,7 @@ import { showLoading, hideLoading } from 'react-redux-loading'
 export const RECEIVE_USERS = 'RECEIVE_USERS'
 export const ADD_USER = 'ADD_USER'
 export const ADD_QUESTION_TO_USER = 'ADD_QUESTION_TO_USER'
-export const SAVE_QUESTION_ANSWER = 'SAVE_QUESTION_ANSWER'
+export const SAVE_QUESTION_ANSWER_TO_USER = 'SAVE_QUESTION_ANSWER_TO_USER'
 
 function addUser (user) {
   return {
@@ -29,7 +29,7 @@ export function addQuestionToUser (question) {
 
 export function addQuestionAnswerToUser (info) {
   return {
-    type: SAVE_QUESTION_ANSWER,
+    type: SAVE_QUESTION_ANSWER_TO_USER,
     info
   }
 }
