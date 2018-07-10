@@ -4,7 +4,7 @@ import { receiveQuestions, addQuestion as addQuestionAction, addQuestionAnswer }
 import { setAuthUser } from '../actions/authUser'
 import { showLoading, hideLoading } from 'react-redux-loading'
 
-const AUTH_ID = 'sarahedo'
+const AUTH_ID = null
 
 export function handleInitialData (authedId = null) {
   return (dispatch) => {
