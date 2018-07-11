@@ -5,7 +5,7 @@ import {
   _saveUser,
   _saveQuestion,
   _saveQuestionAnswer
-} from './_DATA.js'
+} from './_Data.js'
 
 export function getInitialData () {
   return Promise.all([
