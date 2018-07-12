@@ -6,14 +6,16 @@ import { showLoading, hideLoading } from 'react-redux-loading'
 
 const AUTH_ID = null
 
-export function handleInitialData (authedId = null) {
+export function handleInitialData (authedId = null, loadQuestions = false) {
   return (dispatch) => {
     dispatch(showLoading())
     return getInitialData()
       .then(({ questions, users }) => {
         dispatch(receiveUsers(users))
-        dispatch(receiveQuestions(questions))
-        if (authedId !== null) {
+        if (loadQuestions === true) {
+          dispatch(receiveQuestions(questions))
+        }
+        if (authedId !== null || loadQuestions === false) {
           dispatch(setAuthUser(authedId))
         }
         dispatch(hideLoading())
@@ -28,9 +30,9 @@ export function setLoggedInUser (authId) {
 
   return (dispatch) => {
     if (authId == null) {
-      dispatch(setAuthUser(authId))
+      dispatch(handleInitialData(authId, false))
     } else {
-      dispatch(handleInitialData(authId))
+      dispatch(handleInitialData(authId, true))
     }
   }
 }
